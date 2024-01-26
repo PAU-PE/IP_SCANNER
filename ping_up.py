@@ -7,7 +7,7 @@ def check_ip(ip):
     if result.returncode == 0:
         print(f"{ip} is up")
 
-network = ipaddress.ip_network('192.168.0.195/24', strict=False)
+network = ipaddress.ip_network('IP_RANGE', strict=False)   #change the IP_RANGE for the actual range of ip that you want to scan
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     executor.map(check_ip, network.hosts())
